@@ -99,3 +99,50 @@ Both services are connected via the `searchnet` Docker network.
 ---
 
 Feel free to contribute or open issues!
+
+## Examples of Using Kibana
+
+### 1. Index a Document in Elasticsearch via Kibana Console
+
+```json
+POST products/_doc
+{
+  "name": "MacBook Pro",
+  "category": "laptop",
+  "price": 2200
+}
+```
+
+**Expected response:**
+```json
+{
+  "_index": "products",
+  "_id": "<id>",
+  "_version": 1,
+  "result": "created",
+  "_shards": { "total": 2, "successful": 1, "failed": 0 },
+  "_seq_no": 0,
+  "_primary_term": 1
+}
+```
+
+### 2. View Documents in Kibana Discover
+
+In the **Discover** tab of Kibana, select the `products` index to see the indexed documents:
+
+| category    | name         | price |
+|-------------|--------------|-------|
+| laptop      | MacBook Pro  | 2200  |
+| electronics | Gaming Mouse | 50    |
+
+You can filter, sort, and explore fields in the graphical interface.
+
+## Screenshots
+
+### 1. Indexing a Document in Kibana Console
+
+![Kibana Console Index Example](./img-1.png)
+
+### 2. Viewing Documents in Kibana Discover
+
+![Kibana Discover Example](./img-2.png)
